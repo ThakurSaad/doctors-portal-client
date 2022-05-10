@@ -1,0 +1,8 @@
+.banner-img {
+  max-width: 330px;
+}
+@media only screen and (min-width: 1024px) {
+  .banner-img {
+    max-width: 600px;
+  }
+}
