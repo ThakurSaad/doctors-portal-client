@@ -1,10 +1,10 @@
 import React from "react";
 
-const Button = () => {
+const Button = ({ children }) => {
   return (
     <div>
       <button className="btn btn-primary bg-gradient-to-r from-secondary to-primary font-bold text-white">
-        GET STARTED
+        {children}
       </button>
     </div>
   );
