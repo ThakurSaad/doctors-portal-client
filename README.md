@@ -10,6 +10,7 @@ Teleport and Book an appointment
 - React Router Dom (V6)
 - Tailwind
 - Tailwind component library - DaisyUI
+- Firebase
 
 ### New things I learned during this project
 
@@ -20,7 +21,7 @@ In React, when you want to pass an interpreted expression, you have to open a pa
 
 ##### How to set a background image with vanilla css?
 
-`style={{ background: 'url(${appointment})' }}` (`` instead of '')
+`style={{ background: 'url(${appointment})' }}` (``instead of '')`backgroundSize: "contain"` can be added if the background image is not displaying properly
 
 ##### How to pop image out of section?
 
