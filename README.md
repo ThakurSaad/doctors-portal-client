@@ -26,3 +26,10 @@ In React, when you want to pass an interpreted expression, you have to open a pa
 
 use negative margin on the image
 `mt-[-150px]`(tailwind class)
+
+##### Some Tailwind classes
+
+- `mt-[-150px]` perfect alignment
+- `lg:max-w-lg` same as `@media (min-width: 1024px) { .lg\:max-w-lg { max-width: 32rem/* 512px */; } }`
+- `bg-gradient-to-r from-secondary to-primary` gradient color
+- `gap-px` for 1px gap between grid elements
