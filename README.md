@@ -8,3 +8,5 @@ Teleport and Book an appointment
 
 - React
 - React Router Dom (V6)
+- Tailwind
+- Tailwind component library - DaisyUI
