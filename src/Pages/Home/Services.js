@@ -49,7 +49,7 @@ const Services = () => {
               alt="Exceptional Dental Care"
             />
             <div className="lg:px-12">
-              <h1 className="text-5xl font-bold">
+              <h1 className="text-5xl font-bold mt-8 md:mt-0">
                 Exceptional Dental Care, on Your Terms
               </h1>
               <p className="py-6">
