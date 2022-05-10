@@ -2,6 +2,7 @@ import React from "react";
 import footer from "../../assets/images/footer.png";
 
 const Footer = () => {
+  const date = new Date();
   return (
     <footer
       style={{
@@ -30,7 +31,12 @@ const Footer = () => {
         </div>
       </div>
       <div className="text-center font-semibold mt-28">
-        <p>Copyright © 2022 - All right reserved by ACME Industries Ltd</p>
+        <p>
+          Copyright © All right reserved by ACME Industries Ltd <br />
+          {`${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`}
+          &nbsp;&nbsp;&nbsp;
+          {`Time: ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`}
+        </p>
       </div>
     </footer>
   );
