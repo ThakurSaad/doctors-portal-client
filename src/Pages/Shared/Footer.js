@@ -32,7 +32,7 @@ const Footer = () => {
       </div>
       <div className="text-center font-semibold mt-28">
         <p>
-          Copyright © All right reserved by ACME Industries Ltd <br />
+          Copyright © All right reserved<br />
           {`${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`}
           &nbsp;&nbsp;&nbsp;
           {`Time: ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`}
