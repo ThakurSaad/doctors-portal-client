@@ -1,13 +1,10 @@
-import React, { useState } from "react";
 import chair from "../../assets/images/chair.png";
 import bgChair from "../../assets/images/bg.png";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { format } from "date-fns";
 
-const AppointmentBanner = () => {
-  const [date, setDate] = useState(new Date());
-
+const AppointmentBanner = ({ date, setDate }) => {
   return (
     <section
       style={{
@@ -23,12 +20,8 @@ const AppointmentBanner = () => {
           src={chair}
           alt=""
         />
-        <div className="bg-white rounded-xl">
+        <div className="shadow-xl bg-white rounded-xl">
           <DayPicker mode="single" selected={date} onSelect={setDate} />
-          <p className="text-center py-5">
-            You Have Selected :{" "}
-            <span className="text-secondary font-semibold">{format(date, "PP")}</span>
-          </p>
         </div>
       </div>
     </section>
