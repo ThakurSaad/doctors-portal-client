@@ -14,7 +14,7 @@ const BookingModal = ({ treatment }) => {
             use Wikipedia for free!
           </p>
           <div className="modal-action">
-            <label for="booking-modal" className="btn">
+            <label htmlFor="booking-modal" className="btn">
               Yay!
             </label>
           </div>

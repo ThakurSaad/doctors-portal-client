@@ -14,10 +14,9 @@ const AvailableAppointments = ({ date }) => {
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
-  console.log(services);
 
   return (
-    <section cla ssName="my-24">
+    <section className="my-24">
       <h3 className="text-center font-bold text-secondary text-xl uppercase mb-24">
         Available Appointments on {format(date, "PP")}
       </h3>
