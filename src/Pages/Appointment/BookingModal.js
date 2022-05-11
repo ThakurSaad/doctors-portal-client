@@ -34,9 +34,6 @@ const BookingModal = ({ treatment, date, setTreatment }) => {
               name="slot"
               className="select select-bordered w-full max-w-lg mt-4"
             >
-              <option disabled selected>
-                Appointment Schedule
-              </option>
               {slots.map((slot) => (
                 <option value={slot}>{slot}</option>
               ))}
