@@ -12,7 +12,7 @@ const Banner = () => {
         backgroundSize: 'contain',
         backgroundRepeat: 'repeat-y'
       }}
-      className="hero min-h-screen px-1"
+      className="hero min-h-screen"
     >
       <div className="hero-content flex-col lg:flex-row-reverse">
         <img

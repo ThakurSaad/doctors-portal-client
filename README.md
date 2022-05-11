@@ -1,6 +1,6 @@
 # Doctors Portal
 
-Teleport and Book an appointment
+[Teleport and Book an appointment](https://doctors-portal-31ca7.web.app/)
 
 ## Doctors Portal Client
 
@@ -11,8 +11,9 @@ Teleport and Book an appointment
 - Tailwind
 - Tailwind component library - DaisyUI
 - Firebase
+- [React Day Picker](https://react-day-picker.js.org/start)
 
-### New things I learned during this project
+## New things I learned during this project
 
 ##### How to Pass className to react components as props
 
@@ -34,3 +35,9 @@ use negative margin on the image
 - `lg:max-w-lg` same as `@media (min-width: 1024px) { .lg\:max-w-lg { max-width: 32rem/* 512px */; } }`
 - `bg-gradient-to-r from-secondary to-primary` gradient color
 - `gap-px` for 1px gap between grid elements
+
+##### Using react day picker for calendar
+
+##### Date Function
+
+##### [date-fns](https://date-fns.org/)
