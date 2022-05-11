@@ -1,7 +1,6 @@
 import React from "react";
-import Button from "../Shared/Button";
 
-const Service = ({ service }) => {
+const Service = ({ service, setTreatment }) => {
   const { name, slots } = service;
 
   return (
@@ -23,6 +22,7 @@ const Service = ({ service }) => {
         </p>
         <div className="card-actions justify-center">
           <button
+            onClick={() => setTreatment(service)}
             className="btn btn-primary bg-gradient-to-r from-secondary to-primary font-bold text-white"
             disabled={slots.length === 0}
           >
