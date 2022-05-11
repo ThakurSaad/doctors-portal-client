@@ -22,7 +22,12 @@ const Service = ({ service }) => {
           {slots.length} {slots.length <= 1 ? "space" : "spaces"} Available
         </p>
         <div className="card-actions justify-center">
-          <Button disabled={slots.length === 0}>Book Appointment</Button>
+          <button
+            className="btn btn-primary bg-gradient-to-r from-secondary to-primary font-bold text-white"
+            disabled={slots.length === 0}
+          >
+            Book Appointment
+          </button>
         </div>
       </div>
     </div>
