@@ -1,9 +1,9 @@
 import React from "react";
 
-const Button = ({ children, align }) => {
+const Button = ({ children, align, disabled }) => {
   return (
     <div>
-      <button className={`btn btn-primary bg-gradient-to-r from-secondary to-primary font-bold text-white ${align}`}>
+      <button disabled={disabled} className={`btn btn-primary bg-gradient-to-r from-secondary to-primary font-bold text-white ${align}`}>
         {children}
       </button>
     </div>
