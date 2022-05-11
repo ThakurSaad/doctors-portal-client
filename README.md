@@ -41,3 +41,8 @@ use negative margin on the image
 ##### Date Function
 
 ##### [date-fns](https://date-fns.org/)
+
+##### How to close sidebar on figma
+
+ctrl + \
+ctrl + shift + \
