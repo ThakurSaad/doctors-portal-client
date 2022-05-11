@@ -20,7 +20,7 @@ const BookingModal = ({ treatment, date }) => {
             <input
               disabled
               type="text"
-              value={`${format(date, "PP")}`}
+              value={format(date, "PP")}
               className="input input-bordered w-full max-w-lg mt-4"
             />
             <input
