@@ -1,4 +1,5 @@
 import React from "react";
+import { format } from "date-fns";
 
 const BookingModal = ({ treatment, date }) => {
   const { name, slots } = treatment;
@@ -17,14 +18,15 @@ const BookingModal = ({ treatment, date }) => {
           <form className="text-center">
             <h3 className="font-bold text-lg">{name}</h3>
             <input
+              disabled
               type="text"
-              placeholder="Type here"
+              value={`${format(date, "PP")}`}
               className="input input-bordered w-full max-w-lg mt-4"
             />
             <input
+              disabled
               type="text"
               value={slots[0]}
-              disabled
               className="input input-bordered w-full max-w-lg mt-4"
             />
             <input
