@@ -8,9 +8,7 @@ const AvailableAppointments = ({ date }) => {
   const [treatment, setTreatment] = useState(null);
 
   useEffect(() => {
-    fetch(
-      "https://raw.githubusercontent.com/ProgrammingHero1/doctors-portal-client-module-72/main/public/services.json"
-    )
+    fetch("http://localhost:4000/services")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
