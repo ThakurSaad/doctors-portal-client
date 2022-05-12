@@ -5,11 +5,12 @@ import {
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
@@ -36,9 +37,10 @@ const SignUp = () => {
   }
 
   const onSubmit = async (data) => {
-      await createUserWithEmailAndPassword(data.email, data.password);
-      await updateProfile({ displayName: data.name });
-      console.log(data);
+    await createUserWithEmailAndPassword(data.email, data.password);
+    await updateProfile({ displayName: data.name });
+    console.log("update done");
+    navigate("/appointment");
   };
 
   return (
