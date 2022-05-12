@@ -14,6 +14,7 @@
 - [React Day Picker](https://react-day-picker.js.org/start)
 - firebase
 - React firebase hooks
+- React hook form
 
 ## New things I learned during this project
 
