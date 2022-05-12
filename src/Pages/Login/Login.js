@@ -20,7 +20,7 @@ const Login = () => {
   let singInError;
 
   if (gUser || user) {
-    console.log("USER", gUser);
+    console.log("USER", gUser || user);
   }
   if (gLoading || loading) {
     return <Loading></Loading>;
