@@ -1,22 +1,22 @@
 import React from "react";
 import {
-  useSignInWithEmailAndPassword,
+  useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
-import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
-import Loading from "../Shared/Loading";
 import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
+import Loading from "../Shared/Loading";
 
-const Login = () => {
+const SignUp = () => {
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
   let singInError;
 
   if (gUser || user) {
@@ -35,7 +35,7 @@ const Login = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    signInWithEmailAndPassword(data.email, data.password);
+    createUserWithEmailAndPassword(data.email, data.password);
   };
 
   return (
@@ -116,9 +116,9 @@ const Login = () => {
             />
             <p className="text-center p-1">
               <small>
-                New To Doctors Portal ?{" "}
-                <Link to="/signup" className="text-primary font-semibold">
-                  Create new account
+                Already have an account ?{" "}
+                <Link className="text-primary font-semibold" to="login">
+                  Login
                 </Link>
               </small>
             </p>
@@ -136,4 +136,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
