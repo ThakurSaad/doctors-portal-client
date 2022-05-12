@@ -1,7 +1,11 @@
 import React from "react";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
+import Loading from "../Shared/Loading";
 
 const Login = () => {
   const {
@@ -9,20 +13,28 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  let singInError;
 
-  if (user) {
-    console.log("USER", user);
+  if (gUser || user) {
+    console.log("USER", gUser);
   }
-  if (loading) {
-    console.log("LOADING", loading);
+  if (gLoading || loading) {
+    return <Loading></Loading>;
   }
-  if (error) {
-    console.log(error);
+  if (gError || error) {
+    singInError = (
+      <p className="text-red-500 text-sm px-1 pb-2">
+        {error?.message || gError?.message}
+      </p>
+    );
   }
 
   const onSubmit = (data) => {
     console.log(data);
+    signInWithEmailAndPassword(data.email, data.password);
   };
 
   return (
@@ -95,6 +107,7 @@ const Login = () => {
                 )}
               </label>
             </div>
+            {singInError}
             <input
               className="btn w-full max-w-xs"
               type="submit"
