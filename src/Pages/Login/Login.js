@@ -30,79 +30,76 @@ const Login = () => {
       <div className="card lg:w-96 bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="text-center text-xl font-semibold">Login</h2>
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              <span className="label-text font-semibold">Email</span>
-            </label>
-            <input
-              type="email"
-              placeholder="Your email"
-              className="input input-bordered w-full max-w-xs"
-              {...register("email", {
-                required: {
-                  value: true,
-                  message: "Email is required",
-                },
-                pattern: {
-                  value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                  message: "error message",
-                },
-              })}
-            />
-            <label className="label">
-              {errors.email?.type === "required" && (
-                <span className="label-text-alt text-red-500">
-                  {errors.email.message}
-                </span>
-              )}
-              {errors.email?.type === "pattern" && (
-                <span className="label-text-alt text-red-500">
-                  {errors.email.message}
-                </span>
-              )}
-            </label>
-          </div>
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              <span className="label-text font-semibold">Password</span>
-            </label>
-            <input
-              type="password"
-              placeholder="Password"
-              className="input input-bordered w-full max-w-xs"
-              {...register("password", {
-                required: {
-                  value: true,
-                  message: "Password is required",
-                },
-                minLength: {
-                  value: 6,
-                  message: "Must be 6 characters long or higher",
-                },
-              })}
-            />
-            <label className="label">
-              {errors.password?.type === "required" && (
-                <span className="label-text-alt text-red-500">
-                  {errors.password.message}
-                </span>
-              )}
-              {errors.password?.type === "minLength" && (
-                <span className="label-text-alt text-red-500">
-                  {errors.password.message}
-                </span>
-              )}
-            </label>
-          </div>
-
           <form onSubmit={handleSubmit(onSubmit)}>
-            <input />
-            {errors.firstName?.type === "required" && "First name is required"}
-
-            <input {...register("lastName", { required: true })} />
-            {errors.lastName && "Last name is required"}
-
-            <input type="submit" />
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text font-semibold">Email</span>
+              </label>
+              <input
+                type="email"
+                placeholder="Your email"
+                className="input input-bordered w-full max-w-xs"
+                {...register("email", {
+                  required: {
+                    value: true,
+                    message: "Email is required",
+                  },
+                  pattern: {
+                    value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                    message: "Provide a valid email",
+                  },
+                })}
+              />
+              <label className="label">
+                {errors.email?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.email.message}
+                  </span>
+                )}
+                {errors.email?.type === "pattern" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.email.message}
+                  </span>
+                )}
+              </label>
+            </div>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text font-semibold">Password</span>
+              </label>
+              <input
+                type="password"
+                placeholder="Password"
+                className="input input-bordered w-full max-w-xs"
+                {...register("password", {
+                  required: {
+                    value: true,
+                    message: "Password is required",
+                  },
+                  minLength: {
+                    value: 6,
+                    message: "Must be 6 characters long or higher",
+                  },
+                })}
+              />
+              <label className="label">
+                {errors.password?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.password.message}
+                  </span>
+                )}
+                {errors.password?.type === "minLength" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.password.message}
+                  </span>
+                )}
+              </label>
+            </div>
+            <input
+              className="btn w-full max-w-xs"
+              type="submit"
+              value="LOGIN"
+            />
           </form>
           <div className="divider">OR</div>
           <button
