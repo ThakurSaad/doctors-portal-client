@@ -22,10 +22,11 @@ const Login = () => {
   let singInError;
   let from = location.state?.from?.pathname || "/";
 
-  if (gUser || user) {
-    // useEffect(() => {}, []);
-    navigate(from, { replace: true });
-  }
+  useEffect(() => {
+    if (gUser || user) {
+      navigate(from, { replace: true });
+    }
+  }, [gUser, user, from, navigate]);
   if (gLoading || loading) {
     return <Loading></Loading>;
   }
