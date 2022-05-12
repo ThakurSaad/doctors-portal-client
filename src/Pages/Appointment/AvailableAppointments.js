@@ -8,7 +8,7 @@ const AvailableAppointments = ({ date }) => {
   const [treatment, setTreatment] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:4000/service")
+    fetch("https://dry-hollows-93742.herokuapp.com/service")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
