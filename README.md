@@ -75,3 +75,13 @@ ctrl + shift + \
   return <Loading></Loading>;
   }
 ```
+
+- ##### How to add key with map(index) parameter?
+
+- ##### Cannot update a component while rendering a different component warning error solved
+
+  had to use useEffect
+
+- ##### A component is changing an uncontrolled input of type text to be controlled error in ReactJS
+
+  hand to use `|| ""`
