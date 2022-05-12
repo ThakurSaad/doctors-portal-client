@@ -40,14 +40,27 @@ const Login = () => {
               placeholder="Your email"
               className="input input-bordered w-full max-w-xs"
               {...register("email", {
+                required: {
+                  value: true,
+                  message: "Email is required",
+                },
                 pattern: {
-                  value: /[A-Za-z]{3}/,
+                  value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
                   message: "error message",
                 },
               })}
             />
             <label className="label">
-              <span className="label-text-alt">Alt label</span>
+              {errors.email?.type === "required" && (
+                <span className="label-text-alt text-red-500">
+                  {errors.email.message}
+                </span>
+              )}
+              {errors.email?.type === "pattern" && (
+                <span className="label-text-alt text-red-500">
+                  {errors.email.message}
+                </span>
+              )}
             </label>
           </div>
 
