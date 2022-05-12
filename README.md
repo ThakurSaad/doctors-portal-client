@@ -65,3 +65,13 @@ ctrl + shift + \
 ```
 
 - ##### How to integrate react hook form
+
+- ##### How to use tailwind css loading spinner
+
+- ##### How to use always show loading spinner
+
+```
+  if (true || gLoading || loading) {
+  return <Loading></Loading>;
+  }
+```
