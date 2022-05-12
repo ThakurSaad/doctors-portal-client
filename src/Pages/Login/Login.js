@@ -6,9 +6,11 @@ import {
 import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
 import Loading from "../Shared/Loading";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
@@ -18,9 +20,10 @@ const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   let singInError;
+  let from = location.state?.from?.pathname || "/";
 
   if (gUser || user) {
-    console.log("USER", gUser || user);
+    navigate(from, { replace: true });
   }
   if (gLoading || loading) {
     return <Loading></Loading>;
