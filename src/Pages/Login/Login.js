@@ -30,7 +30,6 @@ const Login = () => {
       <div className="card lg:w-96 bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="text-center text-xl font-semibold">Login</h2>
-
           <div className="form-control w-full max-w-xs">
             <label className="label">
               <span className="label-text font-semibold">Email</span>
@@ -59,6 +58,38 @@ const Login = () => {
               {errors.email?.type === "pattern" && (
                 <span className="label-text-alt text-red-500">
                   {errors.email.message}
+                </span>
+              )}
+            </label>
+          </div>
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              <span className="label-text font-semibold">Password</span>
+            </label>
+            <input
+              type="password"
+              placeholder="Password"
+              className="input input-bordered w-full max-w-xs"
+              {...register("password", {
+                required: {
+                  value: true,
+                  message: "Password is required",
+                },
+                minLength: {
+                  value: 6,
+                  message: "Must be 6 characters long or higher",
+                },
+              })}
+            />
+            <label className="label">
+              {errors.password?.type === "required" && (
+                <span className="label-text-alt text-red-500">
+                  {errors.password.message}
+                </span>
+              )}
+              {errors.password?.type === "minLength" && (
+                <span className="label-text-alt text-red-500">
+                  {errors.password.message}
                 </span>
               )}
             </label>
