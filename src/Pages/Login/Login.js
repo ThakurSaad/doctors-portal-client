@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import {
+  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
@@ -7,8 +8,10 @@ import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
 import Loading from "../Shared/Loading";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const emailRef = useRef("");
   const location = useLocation();
   const navigate = useNavigate();
   const {
@@ -19,6 +22,8 @@ const Login = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail, sending, resetError] =
+    useSendPasswordResetEmail(auth);
   let singInError;
   let from = location.state?.from?.pathname || "/";
 
@@ -41,6 +46,12 @@ const Login = () => {
   const onSubmit = (data) => {
     console.log(data);
     signInWithEmailAndPassword(data.email, data.password);
+    
+  };
+
+  const handleResetPass = async () => {
+    const email = emailRef.current.value;
+    console.log(email);
   };
 
   return (
@@ -57,6 +68,7 @@ const Login = () => {
                 type="email"
                 placeholder="Your email"
                 className="input input-bordered w-full max-w-xs"
+                ref={emailRef}
                 {...register("email", {
                   required: {
                     value: true,
@@ -119,15 +131,26 @@ const Login = () => {
               type="submit"
               value="LOGIN"
             />
-            <p className="text-center p-1">
-              <small>
-                New To Doctors Portal ?{" "}
-                <Link to="/signup" className="text-primary font-semibold">
-                  Create new account
-                </Link>
-              </small>
-            </p>
           </form>
+          <p className="text-center p-1">
+            <small>
+              New To Doctors Portal ?{" "}
+              <Link to="/signup" className="text-primary font-semibold">
+                Create new account
+              </Link>
+            </small>
+          </p>
+          <p className="text-center">
+            <small>
+              Forgotten password ?{" "}
+              <button
+                onClick={handleResetPass}
+                className="text-primary font-semibold"
+              >
+                Reset
+              </button>
+            </small>
+          </p>
           <div className="divider">OR</div>
           <button
             onClick={() => signInWithGoogle()}
