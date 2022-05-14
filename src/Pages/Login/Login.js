@@ -29,6 +29,7 @@ const Login = () => {
   useEffect(() => {
     if (gUser || user) {
       navigate(from, { replace: true });
+      toast("Welcome back");
     }
   }, [gUser, user, from, navigate]);
   if (gLoading || loading) {
@@ -45,7 +46,6 @@ const Login = () => {
   const onSubmit = (data) => {
     console.log(data);
     signInWithEmailAndPassword(data.email, data.password);
-    toast("Welcome back");
   };
 
   const emailChange = (event) => {
