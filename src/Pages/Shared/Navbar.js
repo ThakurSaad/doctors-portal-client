@@ -31,7 +31,10 @@ const Navbar = () => {
       </li>
       <li>
         {user ? (
-          <button onClick={() => signOut(auth)}>Sing Out</button>
+          <>
+            <Link to="/dashboard">Dashboard</Link>
+            <button onClick={() => signOut(auth)}>Sing Out</button>
+          </>
         ) : (
           <Link to="/login">Login</Link>
         )}
