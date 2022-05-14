@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import {
-  useSendPasswordResetEmail,
+  // useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
@@ -11,7 +11,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const emailRef = useRef("");
   const location = useLocation();
   const navigate = useNavigate();
   const {
@@ -22,8 +21,8 @@ const Login = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
-  const [sendPasswordResetEmail, sending, resetError] =
-    useSendPasswordResetEmail(auth);
+  // const [sendPasswordResetEmail, sending, resetError] =
+  //   useSendPasswordResetEmail(auth);
   let singInError;
   let from = location.state?.from?.pathname || "/";
 
@@ -46,12 +45,15 @@ const Login = () => {
   const onSubmit = (data) => {
     console.log(data);
     signInWithEmailAndPassword(data.email, data.password);
-    
+    toast("Welcome back");
+  };
+
+  const emailChange = (event) => {
+    console.log("typed");
   };
 
   const handleResetPass = async () => {
-    const email = emailRef.current.value;
-    console.log(email);
+    // console.log(event.target.value);
   };
 
   return (
@@ -68,7 +70,7 @@ const Login = () => {
                 type="email"
                 placeholder="Your email"
                 className="input input-bordered w-full max-w-xs"
-                ref={emailRef}
+                onChange={emailChange}
                 {...register("email", {
                   required: {
                     value: true,

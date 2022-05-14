@@ -85,3 +85,7 @@ ctrl + shift + \
 - ##### A component is changing an uncontrolled input of type text to be controlled error in ReactJS
 
   hand to use `|| ""`
+
+### an stackoverflow question
+
+[can not get input value using useRef in react hook form](https://stackoverflow.com/questions/72231898/can-not-get-input-value-using-useref-in-react-hook-form)
