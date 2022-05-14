@@ -1,21 +1,27 @@
 import { format } from "date-fns";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useQuery } from "react-query";
+import Loading from "../Shared/Loading";
 import BookingModal from "./BookingModal";
 import Service from "./Service";
 
 const AvailableAppointments = ({ date }) => {
-  const [services, setServices] = useState([]);
   const [treatment, setTreatment] = useState(null);
   const formattedDate = format(date, "PP");
 
-  useEffect(() => {
-    fetch(`http://localhost:4000/available?date=${formattedDate}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setServices(data);
-        console.log(data);
-      });
-  }, [formattedDate]);
+  const {
+    data: services,
+    isLoading,
+    refetch,
+  } = useQuery(["available", formattedDate], () =>
+    fetch(`http://localhost:4000/available?date=${formattedDate}`).then((res) =>
+      res.json()
+    )
+  );
+
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
 
   return (
     <section className="my-24">
@@ -23,7 +29,7 @@ const AvailableAppointments = ({ date }) => {
         Available Appointments on {format(date, "PP")}
       </h3>
       <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-16 mx-10">
-        {services.map((service) => (
+        {services?.map((service) => (
           <Service
             setTreatment={setTreatment}
             service={service}
@@ -36,6 +42,7 @@ const AvailableAppointments = ({ date }) => {
           date={date}
           treatment={treatment}
           setTreatment={setTreatment}
+          refetch={refetch}
         ></BookingModal>
       )}
     </section>
