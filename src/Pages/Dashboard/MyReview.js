@@ -3,7 +3,7 @@ import React from "react";
 const MyReview = () => {
   return (
     <div>
-      <h3 className="text-center font-bold text-secondary text-4xl uppercase mb-24">
+      <h3 className="text-accent text-4xl uppercase">
         My Review
       </h3>
     </div>
