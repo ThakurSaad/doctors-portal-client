@@ -11,8 +11,11 @@ const AvailableAppointments = ({ date }) => {
   useEffect(() => {
     fetch(`http://localhost:4000/available?date=${formattedDate}`)
       .then((res) => res.json())
-      .then((data) => setServices(data));
-  }, []);
+      .then((data) => {
+        setServices(data);
+        console.log(data);
+      });
+  }, [formattedDate]);
 
   return (
     <section className="my-24">
