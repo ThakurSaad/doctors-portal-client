@@ -15,6 +15,7 @@
 - firebase
 - React firebase hooks
 - React hook form
+- React toastify
 
 ## New things I learned during this project
 
