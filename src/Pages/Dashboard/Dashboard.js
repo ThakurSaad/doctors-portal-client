@@ -1,12 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   return (
     <div class="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content flex flex-col items-center justify-center">
+        <h3 className="text-center font-bold text-secondary text-4xl uppercase mb-24">
+          Dashboard
+        </h3>
         {/* <!-- Page content here --> */}
+        <Outlet></Outlet>
         <label
           for="my-drawer-2"
           class="btn btn-primary drawer-button lg:hidden"
