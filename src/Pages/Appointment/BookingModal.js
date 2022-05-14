@@ -10,9 +10,22 @@ const BookingModal = ({ treatment, date, setTreatment }) => {
   const handleBooking = (event) => {
     event.preventDefault();
     const slot = event.target.slot.value;
-    console.log(_id, name, slot);
+    const formattedDate = format(date, "PP");
+
+    const booking = {
+      treatmentId: _id,
+      treatment: name,
+      date: formattedDate,
+      slot,
+      patient: user.email,
+      patientName: user.displayName,
+      phone: event.target.phone.value,
+    };
+
+    if (booking) {
+      console.log(booking);
+    }
     setTreatment(null);
-    console.log(user);
   };
 
   return (
@@ -60,7 +73,7 @@ const BookingModal = ({ treatment, date, setTreatment }) => {
               disabled
             />
             <input
-              name="number"
+              name="phone"
               type="number"
               placeholder="Phone Number"
               className="input input-bordered w-full max-w-lg mt-4"
