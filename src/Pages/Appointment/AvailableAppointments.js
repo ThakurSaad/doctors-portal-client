@@ -14,7 +14,7 @@ const AvailableAppointments = ({ date }) => {
     isLoading,
     refetch,
   } = useQuery(["available", formattedDate], () =>
-    fetch(`http://localhost:4000/available?date=${formattedDate}`).then((res) =>
+    fetch(`https://dry-hollows-93742.herokuapp.com/available?date=${formattedDate}`).then((res) =>
       res.json()
     )
   );
