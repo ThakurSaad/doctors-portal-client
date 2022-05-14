@@ -12,7 +12,6 @@
 - Tailwind component library - DaisyUI
 - Firebase
 - [React Day Picker](https://react-day-picker.js.org/start)
-- firebase
 - React firebase hooks
 - React hook form
 - React toastify
