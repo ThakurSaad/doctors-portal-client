@@ -32,7 +32,6 @@ const BookingModal = ({ treatment, date, setTreatment }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         const success = data.success;
         setTreatment(null);
         if (success) {
