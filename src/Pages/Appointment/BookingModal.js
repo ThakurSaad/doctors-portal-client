@@ -52,18 +52,18 @@ const BookingModal = ({ treatment, date, setTreatment }) => {
               disabled
             />
             <input
-              name="number"
-              type="number"
-              placeholder="Phone Number"
-              className="input input-bordered w-full max-w-lg mt-4"
-            />
-            <input
               name="email"
               type="email"
               placeholder="Email"
               className="input input-bordered w-full max-w-lg mt-4"
               value={user?.email || ""}
               disabled
+            />
+            <input
+              name="number"
+              type="number"
+              placeholder="Phone Number"
+              className="input input-bordered w-full max-w-lg mt-4"
             />
             <input
               type="submit"
