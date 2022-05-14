@@ -88,6 +88,9 @@ ctrl + shift + \
 
   hand to use `|| ""`
 
+- ##### Javascript algorithm to find elements in array that are not in another array?
+  [Go to](https://stackoverflow.com/questions/2963281/javascript-algorithm-to-find-elements-in-array-that-are-not-in-another-array?answertab=modifieddesc#tab-top)
+
 ### an stackoverflow question
 
 [can not get input value using useRef in react hook form](https://stackoverflow.com/questions/72231898/can-not-get-input-value-using-useref-in-react-hook-form)
