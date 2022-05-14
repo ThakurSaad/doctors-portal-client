@@ -16,6 +16,7 @@
 - React firebase hooks
 - React hook form
 - React toastify
+- [React query](https://react-query.tanstack.com/installation)
 
 ## New things I learned during this project
 
