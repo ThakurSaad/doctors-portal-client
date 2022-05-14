@@ -15,7 +15,7 @@ const MyAppointments = () => {
   }, [user]);
   console.log(appointments);
   return (
-    <section className="mx-8">
+    <section className="mx-8 mb-8">
       <h3 className="text-accent text-4xl uppercase">
         My Appointments : {appointments.length}{" "}
       </h3>
