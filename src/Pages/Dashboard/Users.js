@@ -19,7 +19,7 @@ const Users = () => {
 
   return (
     <section className="mx-8 mb-8">
-      <h3 className="text-accent text-4xl uppercase ml-8">
+      <h3 className="text-accent text-4xl uppercase">
         All Users : {users.length}
       </h3>
       <div className="overflow-x-auto  mt-4">
