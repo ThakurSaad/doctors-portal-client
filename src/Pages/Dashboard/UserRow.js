@@ -1,13 +1,18 @@
 import React from "react";
 
 const UserRow = ({ user, index }) => {
-  
   return (
     <tr>
       <th>{index + 1}</th>
       <td>{user.email}</td>
-      <td>Quality Control Specialist</td>
-      <td>Blue</td>
+      <td>
+        <button className="btn btn-xs">Make Admin</button>
+      </td>
+      <td>
+        <button className="btn btn-xs hover:bg-rose-700 border-0">
+          Remove User
+        </button>
+      </td>
     </tr>
   );
 };
