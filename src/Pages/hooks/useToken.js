@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
-const useToken = user => {
-    const [token, setToken] = useState('');
+const useToken = (user) => {
+  const [token, setToken] = useState("");
 
-    useEffect(() => {
-
-    } ,[user])
-    return [token]
-}
+  useEffect(() => {
+    console.log("user inside token", user);
+  }, [user]);
+  return [token];
+};
 
 export default useToken;

@@ -12,7 +12,6 @@ import useToken from "../hooks/useToken";
 import Loading from "../Shared/Loading";
 
 const SignUp = () => {
-  const [token] = useToken(gUser || user);
   const navigate = useNavigate();
   const {
     register,
@@ -23,6 +22,7 @@ const SignUp = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const [token] = useToken(gUser || user);
   let singInError;
 
   if (gUser || user) {
