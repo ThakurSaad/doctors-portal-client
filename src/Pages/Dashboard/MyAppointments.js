@@ -13,7 +13,7 @@ const MyAppointments = () => {
         .then((data) => setAppointments(data));
     }
   }, [user]);
-  console.log(appointments);
+
   return (
     <section className="mx-8 mb-8">
       <h3 className="text-accent text-4xl uppercase">

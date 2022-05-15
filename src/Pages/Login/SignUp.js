@@ -8,9 +8,11 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
+import useToken from "../hooks/useToken";
 import Loading from "../Shared/Loading";
 
 const SignUp = () => {
+  const [token] = useToken(gUser || user);
   const navigate = useNavigate();
   const {
     register,
@@ -25,6 +27,7 @@ const SignUp = () => {
 
   if (gUser || user) {
     console.log("USER", gUser || user);
+    // navigate("/appointment");
   }
   if (gLoading || loading || updating) {
     return <Loading></Loading>;
@@ -40,8 +43,7 @@ const SignUp = () => {
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
-    toast("Verify your email")
-    navigate("/appointment");
+    toast("Verify your email");
   };
 
   return (
