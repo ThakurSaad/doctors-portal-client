@@ -87,6 +87,10 @@ ctrl + shift + \
 
   hand to use `|| ""`
 
+- ##### validateDOMNesting(...): `<div>` cannot appear as a child of `<tbody>` error
+
+  do not enter div inside `tbody` tag
+
 - ##### Javascript algorithm to find elements in array that are not in another array?
   [Go to](https://stackoverflow.com/questions/2963281/javascript-algorithm-to-find-elements-in-array-that-are-not-in-another-array?answertab=modifieddesc#tab-top)
 
