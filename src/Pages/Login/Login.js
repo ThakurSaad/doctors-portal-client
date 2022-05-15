@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import Loading from "../Shared/Loading";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import useToken from "../hooks/useToken";
 
 const Login = () => {
   const location = useLocation();
@@ -23,15 +24,16 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   // const [sendPasswordResetEmail, sending, resetError] =
   //   useSendPasswordResetEmail(auth);
+  const [token] = useToken(gUser || user);
   let singInError;
   let from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
-    if (gUser || user) {
+    if (token) {
       navigate(from, { replace: true });
       toast("Welcome back");
     }
-  }, [gUser, user, from, navigate]);
+  }, [token, from, navigate]);
   if (gLoading || loading) {
     return <Loading></Loading>;
   }

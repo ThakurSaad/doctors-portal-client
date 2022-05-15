@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
@@ -25,10 +25,11 @@ const SignUp = () => {
   const [token] = useToken(gUser || user);
   let singInError;
 
-  if (gUser || user) {
-    console.log("USER", gUser || user);
-    // navigate("/appointment");
-  }
+  useEffect(() => {
+    if (token) {
+      navigate("/appointment");
+    }
+  }, [navigate, token]);
   if (gLoading || loading || updating) {
     return <Loading></Loading>;
   }
