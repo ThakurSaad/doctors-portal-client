@@ -30,7 +30,7 @@ const MyAppointments = () => {
         })
         .then((data) => setAppointments(data));
     }
-  }, [user]);
+  }, [user, navigate]);
 
   return (
     <section className="mx-8 mb-8">
