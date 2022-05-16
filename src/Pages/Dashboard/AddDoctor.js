@@ -1,10 +1,21 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 
 const AddDoctor = () => {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    console.log("data", data);
+  };
+
   return (
     <section>
       <h3 className="text-accent text-4xl uppercase ml-8">Add A New Doctor</h3>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form className="ml-8" onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control w-full max-w-xs">
           <label className="label">
             <span className="label-text font-semibold">Name</span>
@@ -62,27 +73,23 @@ const AddDoctor = () => {
         </div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text font-semibold">Password</span>
+            <span className="label-text font-semibold">Speciality</span>
           </label>
           <input
-            type="password"
-            placeholder="Password"
+            type="text"
+            placeholder="Speciality"
             className="input input-bordered w-full max-w-xs"
-            {...register("password", {
+            {...register("speciality", {
               required: {
                 value: true,
-                message: "Password is required",
-              },
-              minLength: {
-                value: 6,
-                message: "Must be 6 characters long or higher",
+                message: "Specialization is required",
               },
             })}
           />
           <label className="label">
-            {errors.password?.type === "required" && (
+            {errors.speciality?.type === "required" && (
               <span className="label-text-alt text-red-500">
-                {errors.password.message}
+                {errors.speciality.message}
               </span>
             )}
             {errors.password?.type === "minLength" && (
@@ -92,16 +99,7 @@ const AddDoctor = () => {
             )}
           </label>
         </div>
-        {singInError}
-        <input className="btn w-full max-w-xs" type="submit" value="SIGN UP" />
-        <p className="text-center p-1">
-          <small>
-            Already have an account ?{" "}
-            <Link className="text-primary font-semibold" to="/login">
-              Login
-            </Link>
-          </small>
-        </p>
+        <input className="btn w-full max-w-xs" type="submit" value="add" />
       </form>
     </section>
   );
