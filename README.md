@@ -79,6 +79,8 @@ ctrl + shift + \
 
 - ##### How to add key with map(index) parameter?
 
+- ##### How to upload img to imgbb and get url? (76-3)
+
 - ##### Cannot update a component while rendering a different component warning error solved
 
   had to use useEffect

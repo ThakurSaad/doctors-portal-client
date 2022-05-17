@@ -13,8 +13,28 @@ const AddDoctor = () => {
   const { data: services, isLoading } = useQuery("services", () =>
     fetch("http://localhost:4000/service").then((res) => res.json())
   );
+
+  const imageStorageKey = "2fcb5fd1d0d802659fc347077889ec78";
   const onSubmit = async (data) => {
-    console.log("data", data);
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    fetch(`https://api.imgbb.com/1/upload?key=${imageStorageKey}`, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.success) {
+          const img = result.data.url;
+          const doctor = {
+            name: data.name,
+            email: data.email,
+            speciality: data.speciality,
+            img: img,
+          };
+        }
+      });
   };
 
   if (isLoading) {
