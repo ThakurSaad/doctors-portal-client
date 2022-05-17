@@ -81,6 +81,10 @@ ctrl + shift + \
 
 - ##### How to upload img to imgbb and get url? (76-3)
 
+- ##### How to make a verifyAdmin middleware? (76-5)
+
+- ##### How to set data inside a modal?
+
 - ##### Cannot update a component while rendering a different component warning error solved
 
   had to use useEffect
