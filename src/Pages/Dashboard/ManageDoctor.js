@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import Loading from "../Shared/Loading";
+import DeleteConfirmModal from "./DeleteConfirmModal";
 import DoctorRow from "./DoctorRow";
 
 const ManageDoctor = () => {
+  const [deletingDoctor, setDeletingDoctor] = useState(null);
+
   const {
     data: doctors,
     isLoading,
@@ -42,11 +45,19 @@ const ManageDoctor = () => {
                 index={index}
                 refetch={refetch}
                 doctor={doctor}
+                setDeletingDoctor={setDeletingDoctor}
               ></DoctorRow>
             ))}
           </tbody>
         </table>
       </div>
+      {deletingDoctor && (
+        <DeleteConfirmModal
+          deletingDoctor={deletingDoctor}
+          refetch={refetch}
+          setDeletingDoctor={setDeletingDoctor}
+        ></DeleteConfirmModal>
+      )}
     </section>
   );
 };
