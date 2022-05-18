@@ -5,7 +5,8 @@
 4. create element wrapper using publishable key 
 5. create checkout form using cardElement , useStripe, useElement
 6. get card elements info (credit card info)
+7. get credit card info/error + display card error (if any)
 */
-/* 
-7. get credit card info/error
+/*
+8. get client secret from backend via payment intent post api
 */
