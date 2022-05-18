@@ -27,6 +27,7 @@ const Payment = () => {
     <section className="mx-8 my-8">
       <div className="card w-50 max-w-md bg-base-100 shadow-xl my-12">
         <div className="card-body">
+          <p className="text-success font-semibold">Hello {patientName}</p>
           <h2 className="card-title">Pay For {treatment}</h2>
           <p>
             We will see you on &nbsp;

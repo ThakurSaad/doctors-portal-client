@@ -16,6 +16,7 @@
 - React hook form
 - React toastify
 - [React query](https://react-query.tanstack.com/installation)
+- Stripe
 
 ## New things I learned during this project
 
@@ -84,6 +85,8 @@ ctrl + shift + \
 - ##### How to make a verifyAdmin middleware? (76-5)
 
 - ##### How to set data inside a modal?
+
+- ##### Payment gateway with stripe?
 
 - ##### Cannot update a component while rendering a different component warning error solved
 
