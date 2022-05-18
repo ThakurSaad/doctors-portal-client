@@ -1,5 +1,6 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
+import Loading from "../Shared/Loading";
 
 const CheckoutForm = ({ appointment }) => {
   const stripe = useStripe();
@@ -7,6 +8,7 @@ const CheckoutForm = ({ appointment }) => {
   const [cardError, setCardError] = useState("");
   const [success, setSuccess] = useState("");
   const [transactionId, setTransactionId] = useState("");
+  // const [loader, setLoader] = useState(true);
   const [clientSecret, setClientSecret] = useState("");
   const { price, patient, patientName } = appointment || "";
 
@@ -66,6 +68,7 @@ const CheckoutForm = ({ appointment }) => {
       setTransactionId(paymentIntent.id);
       console.log(paymentIntent);
       setSuccess("Congrats! Your payment is completed");
+      // setLoader(false);
     }
   };
 
@@ -108,6 +111,7 @@ const CheckoutForm = ({ appointment }) => {
           </p>
         </div>
       )}
+      {/* {loader && <Loading></Loading>} */}
     </>
   );
 };
