@@ -6,7 +6,7 @@ const CheckoutForm = ({ appointment }) => {
   const elements = useElements();
   const [cardError, setCardError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
-  const { price } = appointment;
+  const { price } = appointment || "";
 
   useEffect(() => {
     fetch("http://localhost:4000/create-payment-intent", {
@@ -15,7 +15,7 @@ const CheckoutForm = ({ appointment }) => {
         "content-type": "application/json",
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
-      body: JSON.stringify(price),
+      body: JSON.stringify({ price }),
     })
       .then((res) => res.json())
       .then((data) => {
