@@ -13,7 +13,7 @@ const AddDoctor = () => {
   } = useForm();
 
   const { data: services, isLoading } = useQuery("services", () =>
-    fetch("http://localhost:4000/service").then((res) => res.json())
+    fetch("https://dry-hollows-93742.herokuapp.com/service").then((res) => res.json())
   );
 
   const imageStorageKey = "2fcb5fd1d0d802659fc347077889ec78";
@@ -35,7 +35,7 @@ const AddDoctor = () => {
             speciality: data.speciality,
             img: img,
           };
-          fetch("http://localhost:4000/doctor", {
+          fetch("https://dry-hollows-93742.herokuapp.com/doctor", {
             method: "POST",
             headers: {
               "content-type": "application/json",
