@@ -8,7 +8,7 @@ const CheckoutForm = ({ appointment }) => {
   const [cardError, setCardError] = useState("");
   const [success, setSuccess] = useState("");
   const [transactionId, setTransactionId] = useState("");
-  // const [loader, setLoader] = useState(true);
+  const [processing, setProcessing] = useState(false);
   const [clientSecret, setClientSecret] = useState("");
   const { price, patient, patientName } = appointment || "";
 
@@ -48,6 +48,7 @@ const CheckoutForm = ({ appointment }) => {
 
     setCardError(error?.message || "");
     setSuccess("");
+    setProcessing(true);
 
     // confirm cardPayment
     const { paymentIntent, error: intentError } =
@@ -63,12 +64,19 @@ const CheckoutForm = ({ appointment }) => {
 
     if (intentError?.message) {
       setCardError(intentError?.message);
+      setProcessing(false);
     } else {
       setCardError("");
       setTransactionId(paymentIntent.id);
       console.log(paymentIntent);
       setSuccess("Congrats! Your payment is completed");
-      // setLoader(false);
+
+      fetch("")
+        .then((res) => res.json())
+        .then((data) => {
+          setProcessing(false);
+          console.log(data);
+        });
     }
   };
 
