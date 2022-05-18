@@ -23,7 +23,6 @@ const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
       patientName: user.displayName,
       phone: event.target.phone.value,
     };
-    console.log(booking);
     fetch("https://dry-hollows-93742.herokuapp.com/booking", {
       method: "POST",
       headers: {
